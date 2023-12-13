@@ -3,7 +3,7 @@ import Image from 'next/image'
 import AnimarFondo from '../components/animacionPlanetas';
 import Switch from '@mui/material/Switch';
 import { useInView } from 'react-intersection-observer';
-import MyCarousel from '../components/carrousel';
+import Tarjetas from '../components/carrousel';
 
 
 const TextosEspaniol = [
@@ -37,6 +37,9 @@ const TextosEspaniol = [
   "RENT-A-TRONIC es una versión divertida de una aplicación empresarial promedio programada en C# con WINFORMS. Su propósito es manejar las ventas y el inventario para un servicio de alquiler de animatrónicos con un tema único de FNAF. La aplicación, utilizando una base de datos externa, sigue los calendarios individuales para cada animatrónico. Ofrece funciones completas de gestión para animatrónicos, fiestas y usuarios, con acceso adaptado a diferentes tipos de usuarios. La aplicación permite copias de seguridad físicas y puede recibir información a través de hojas de cálculo o desde de la aplicación (cada tabla tiene su propia interfaz para interactuar y un CRUD personalizado).",
   "La página que estás viendo!! Esta página fue construida usando REACT y THREE.JS, este último es el encargado de la renderizacion de objetos 3D dinámicamente. Inclusive las estrellas son objetos con profundidad! Al mover la cámara, se puede notar como las estrellas mas cercanas a la pantalla se mueven mas rápido que las lejanas. Esta pagina también utiliza otras librerías como brainhub-carousel, material-ui y bootstrap.",
   "Hace click en el banner para ver el proyecto en GIT!",
+  "Contactame!",
+  "Email copiado al portapaeles!",
+  "Descarga mi curriculum en español"
 
 ];
 
@@ -70,7 +73,10 @@ const TextosIngles = [
   "VISIBLENT is a 2D platformer game crafted with PYTHON and It has an extremely satisfactory movement gampley and a funny charm.The unique twist lies in having to conquer each level twice, but there’s a catch… the second time around, all obstacles turn invisible, requiring players to memorize  the entire map for success, as well as hearing enemies. Every single animation, object, sprite, sound and music was made by myself. The game encourages replayability saving a local leaderboard of scores. It's available for WINDOWS and LINUX",
   "RENT-A-TRONIC is an engaging take on a traditional desktop business application, developed in C# using WINFORMS. Its purpose is to manage sales and inventory for an animatronic rental service with a unique FNAF theme. The application, utilizing an external database, tracks individual calendars for each animatronic. It offers comprehensive management features for animatronics, parties, and users, with access tailored to different user types. The app allows for physical backups and can receive info through sheets or app input (each table has it's own interface for interaction and a personalized CRUD). Check out it's awesome design!",
   "The page you are currently viewing was built using REACT and THREE.JS, the latter being the library enabling 3D renderization of background objects. Notably, the stars aren't static images! Pay attention; as you move the mouse, the stars react dynamically, adjusting their speeds based on the distance from the camera. The page also integrates various libraries, including brainhub-carousel, material-ui, and bootstrap.",
-  "Click on the project’s banner and learn more on it's GIT page!	"
+  "Click on the project’s banner and learn more on it's GIT page!	",
+  "Contact me!",
+  "Email copied to clipboard!",
+  "Download my curriculum in english"
 
 ];
 
@@ -90,6 +96,7 @@ export default function hola(){
   const [ref, inView] = useInView({triggerOnce: true});
   const [ref2, inView2] = useInView({triggerOnce: true});
   const [ref3, inView3] = useInView({triggerOnce: true});
+  const [ref4 , inView4] = useInView({triggerOnce: true});
 
   function transicion (palabraInicial, palabraFinal,func,delay){
     const longitud = palabraFinal.length;
@@ -117,7 +124,37 @@ export default function hola(){
     transicion(ini2,fini2,setFluido2,40)
   }
 
+  function descargarCurriculum(){
+    const urlDelPDF = `/documents/CV_${idioma}.pdf`;
+    window.open(urlDelPDF, '_blank');
+  };
+
+  async function copiarAlPortapapeles(){
+    console.log("entra")
+    const email = 'https://www.ejemplo.com';
+
+    try {
+      await navigator.clipboard.writeText(email);
+      alert(textos[31]);
+    } catch (err) {
+      console.error('Error:', err);
+    }
+  };
+
+
+
   useEffect(AnimarFondo,[]);
+
+  useEffect(() => {
+    const manejarCambioDeTamaño = () => {
+      clearTimeout(window.resizeTimeout);
+      window.resizeTimeout = setTimeout(() => {
+        window.location.reload();
+      }, 10);
+    };
+
+    window.addEventListener('resize', manejarCambioDeTamaño);
+  }, []);
 
 return (<>
 <canvas id="bg"></canvas>   
@@ -144,9 +181,9 @@ return (<>
           </div>
   </header>
 
-  <blockquote>
+  <tituloBlanco>
     <p>-{fluido2} </p>
-  </blockquote>
+  </tituloBlanco>
 
 
   <section ref={ref} className={`section ${inView ? 'visible' : ''}`}>
@@ -170,9 +207,9 @@ return (<>
     </div>
     <h3>{textos[11]}</h3>
     <p>{textos[12]}<br/><b>{textos[13]}</b></p>
-  
   </work>
 </section>
+
 <section ref={ref3} className={`section ${inView3 ? 'visible' : ''}`}>
   <h1>{textos[14]}</h1>
   <work onClick={() => {window.open('https://fra.utn.edu.ar/', '_blank');}}>
@@ -192,46 +229,37 @@ return (<>
   </work>
 </section>
 
-<blockquote>
+<tituloBlanco>
     <p>{textos[24]}</p>
-  </blockquote>
+</tituloBlanco>
 
 <div className='component3'>
-<MyCarousel txs={textos}/>
+<Tarjetas txs={textos}/>
 </div>
 
-<section className="left">
-  <h2>🌮 Work History</h2>
 
-  <h3>McDonalds</h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
-  <h3>Burger King</h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
-  <h3>Taco Bell</h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
-
-</section>
-
-<section className="left">
-  <h2>🌮 Work History</h2>
-  <h3>McDonalds</h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
-  <h3>Burger King</h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
-  <h3>Taco Bell</h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
+<section ref={ref4} className={`section center ${inView4? 'visible':''}`}>
+  <h1>{textos[30]}</h1>
+<div className="contact">
+  <div className='contactImage' onClick={descargarCurriculum}><Image src="/images/iconosMarcas/archivo.png" alt="LOGO AVE " width={75} height={75}/></div>
+    <h3>{textos[32]}</h3>
+  </div>
+  <div className="contact">
+  <div className='contactImage' onClick={copiarAlPortapapeles}><Image src="/images/iconosMarcas/email.png" alt="LOGO AVE " width={75} height={75}/></div>
+    <h3> marlesurielnicolas@gmail.com</h3>
+  </div>
+  <div className="contact">
+  <div className='contactImage' onClick={() => {window.open('https://linkedin.com/in/uriel-nicolas-marles', '_blank');}}><Image src="/images/iconosMarcas/linkedinBlack.png" alt="LOGO AVE " width={75} height={75}/></div>
+    <h3>linkedin.com/in/uriel-nicolas-marles</h3>
+  </div>
+  <div className="contact">
+  <div className='contactImage' onClick={() => {window.open('https://github.com/UrielMarles', '_blank');}}><Image src="/images/iconosMarcas/github.png" alt="LOGO AVE " width={75} height={75}/></div>
+    <h3>github.com/UrielMarles</h3>
+  </div>
+  <div className="contact">
+  <div className='contactImage' onClick={() => {window.open('https://gitlab.com/UrielMarles', '_blank');}}><Image src="/images/iconosMarcas/gitlab.png" alt="LOGO AVE " width={75} height={75}/></div>
+    <h3>gitlab.com/UrielMarles</h3>
+  </div>
 </section>
 </main>
 </>)

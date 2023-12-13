@@ -48,6 +48,28 @@ canvas {
   left: 0;
 }
 
+.contact{
+  font-size: medium;
+  display: flex;
+  align-items: center;
+  background-color: rgba(15, 15, 15, 0.95);
+  color: white;
+  transition: transform 0.3s ease-in-out;
+  margin: 20px;
+}
+
+.contact .contactImage :hover{
+  transform: scale(0.95);
+  cursor: pointer;
+}
+
+.contact .contactImage{
+  vertical-align: middle;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.74);
+  padding: 10px;
+}
+
 work {
   margin-top: 20px;
   display: flex;
@@ -65,6 +87,10 @@ work:hover {
   cursor: pointer;
 }
 
+work .transparent{
+  background-color: rgba(15, 15, 15, 0.95);
+  color: white;
+}
 
 .image-container img {
   vertical-align: middle;
@@ -106,8 +132,12 @@ section {
 }
 
 section h1 {
+  margin: 30px;
+  margin-bottom: 40px;
   text-align: center;
+  text-transform: uppercase;
   text-decoration: underline;
+  font-weight: bold;
 }
 
 section h3{
@@ -119,6 +149,23 @@ section h3{
   transform: translateX(300px);
 }
 
+.center{
+  align-items: center;
+  margin-top: 0px;
+
+  padding: 75px;
+  padding-top: 30px;
+  grid-column: 4/10;
+  transform: translateX(0);
+  transform: translateY(300px);
+  border: 20px white;
+
+}
+
+.visible .center{
+  transform: translateY(0);
+}
+
 .visible {
   opacity: 1;
   transform: translateX(0);
@@ -126,14 +173,14 @@ section h3{
 
 
 
-blockquote {
+tituloBlanco {
   margin: 0;
   padding: 0;
   grid-column: 2 / span 9;
   margin-bottom: 200px;
 }
 
-blockquote p {
+tituloBlanco p {
   color: black;
   background-color: rgba(255, 255, 255, 0.74);
   font-size: 4rem;
@@ -146,4 +193,5 @@ blockquote p {
 .component3 {
   grid-column: span 12; /* El tercer componente ocupa las 12 columnas */
   margin-top: 20px; /* Espacio entre el componente superior y el componente3 */
+  margin-bottom: 200px;
 }

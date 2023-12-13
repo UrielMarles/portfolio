@@ -30,7 +30,14 @@ const TextosEspaniol = [
   "February 2022 - March 2022",
   "ILSE - BACHILLER",
   "Una escuela secundaria con un enfoque en los aspectos artisticos y creativos de la educacion. Una inmersion cultural, historica y literaria de primer nivel.",
-  "Enero 2017 - Diciembre 2021"
+  "Enero 2017 - Diciembre 2021",
+  "Proyectos destacados:",
+  "Project Keystone sirve como la base (¡piedra fundamental!) para comenzar el armado de una página usando FLASK y NEXT, dando explicaciones paso a paso de como iniciar, y como utilizar cada herramienta. Cada parte del entorno viene con una serie de ventajas para resolver problemas y situaciones comunes en un proyecto, ventajas como: creado automático de rutas para interactuar con cada entidad, un sistema de permisos, usuarios y roles, cargado de información a través de hojas de cálculo y una serie de componentes para la creación de formularios, con ejemplos de estilo y uso.",
+  "VISIBLENT es un juego de plataformas 2D creado con PYTHON, el movimiento tiene una fluidez satisfactoria y el diseño es simple y divertido. Lo que lo vuelve único es la forma de pasar cada nivel, la primera parece normal, pero en la segunda todos los obstáculos se vuelven invisibles y es necesario memorizar el mapa o guiarse por los sonidos de los enemigos. Cada animación, bloque, sprite y sonido fue hecho por mí y estaría muy feliz de que lo probasen. El juego esta disponible tanto para WINDOWS como Linux.",
+  "RENT-A-TRONIC es una versión divertida de una aplicación empresarial promedio programada en C# con WINFORMS. Su propósito es manejar las ventas y el inventario para un servicio de alquiler de animatrónicos con un tema único de FNAF. La aplicación, utilizando una base de datos externa, sigue los calendarios individuales para cada animatrónico. Ofrece funciones completas de gestión para animatrónicos, fiestas y usuarios, con acceso adaptado a diferentes tipos de usuarios. La aplicación permite copias de seguridad físicas y puede recibir información a través de hojas de cálculo o desde de la aplicación (cada tabla tiene su propia interfaz para interactuar y un CRUD personalizado).",
+  "La página que estás viendo!! Esta página fue construida usando REACT y THREE.JS, este último es el encargado de la renderizacion de objetos 3D dinámicamente. Inclusive las estrellas son objetos con profundidad! Al mover la cámara, se puede notar como las estrellas mas cercanas a la pantalla se mueven mas rápido que las lejanas. Esta pagina también utiliza otras librerías como brainhub-carousel, material-ui y bootstrap.",
+  "Hace click en el banner para ver el proyecto en GIT!",
+
 ];
 
 const TextosIngles = [
@@ -58,6 +65,13 @@ const TextosIngles = [
   "ILSE - High school - Bachelor's degree",
   "A high school with a focus on the creative and artistic sides of education, as well as personal growth and literature.",
   "January 2017 - December 2021",
+  "Proyectos destacados:",
+  "Project Keystone serves as a foundational guide for building a web app using FLASK and NEXT. It provides detailed explanations for each step and tool involved. There are three separate images, the database, the API and the FRONT and each one comes with it's quirks. The API automatically creates tables and default query routes, it's as simple as creating the entity and you'll be all set to go, with fetching routes and token-handling ready. The database comes with protocols to adapt CSV sheets and loading the starting data automatically. The front pages come with a guide as well and easy to use form components.",
+  "VISIBLENT is a 2D platformer game crafted with PYTHON and It has an extremely satisfactory movement gampley and a funny charm.The unique twist lies in having to conquer each level twice, but there’s a catch… the second time around, all obstacles turn invisible, requiring players to memorize  the entire map for success, as well as hearing enemies. Every single animation, object, sprite, sound and music was made by myself. The game encourages replayability saving a local leaderboard of scores. It's available for WINDOWS and LINUX",
+  "RENT-A-TRONIC is an engaging take on a traditional desktop business application, developed in C# using WINFORMS. Its purpose is to manage sales and inventory for an animatronic rental service with a unique FNAF theme. The application, utilizing an external database, tracks individual calendars for each animatronic. It offers comprehensive management features for animatronics, parties, and users, with access tailored to different user types. The app allows for physical backups and can receive info through sheets or app input (each table has it's own interface for interaction and a personalized CRUD). Check out it's awesome design!",
+  "The page you are currently viewing was built using REACT and THREE.JS, the latter being the library enabling 3D renderization of background objects. Notably, the stars aren't static images! Pay attention; as you move the mouse, the stars react dynamically, adjusting their speeds based on the distance from the camera. The page also integrates various libraries, including brainhub-carousel, material-ui, and bootstrap.",
+  "Click on the project’s banner and learn more on it's GIT page!	"
+
 ];
 
 
@@ -179,11 +193,11 @@ return (<>
 </section>
 
 <blockquote>
-    <p>Featured Projects:</p>
+    <p>{textos[24]}</p>
   </blockquote>
 
 <div className='component3'>
-<MyCarousel/>
+<MyCarousel txs={textos}/>
 </div>
 
 <section className="left">

@@ -44,7 +44,7 @@ export default function AnimarFondo(){
   
   Array(400).fill().forEach(addStar);
   
-  const UrielImagen = loader.load('/images/URIELGBB.png');
+  const UrielImagen = loader.load('/images/URIELSS.png');
   const UrielCubo = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: UrielImagen }));
   UrielCubo.position.z = -5;
   UrielCubo.position.x = 2;
